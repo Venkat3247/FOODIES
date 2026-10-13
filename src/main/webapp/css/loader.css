@@ -1,0 +1,239 @@
+/* =========================================================
+   FOODIES - LOADING SCREEN
+   Step 2
+   ========================================================= */
+
+#foodies-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #171717 0%,
+            #0d0d0d 45%,
+            #070707 100%
+        );
+
+    z-index: 99999;
+    overflow: hidden;
+}
+
+
+/* Loader container */
+
+#foodies-loader #container {
+    position: relative;
+
+    width: 190px;
+    height: 190px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    perspective: 800px;
+}
+
+
+/* Loading text */
+
+#foodies-loader #h3 {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 10;
+
+    color: #f5f1e8;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    letter-spacing: 0.18em;
+    text-transform: lowercase;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 0 15px rgba(255, 255, 255, 0.15);
+}
+
+
+/* Rings */
+
+#foodies-loader #ring {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 190px;
+    height: 190px;
+
+    border: 1px solid transparent;
+
+    border-radius: 50%;
+
+    transform-style: preserve-3d;
+
+    will-change: transform;
+}
+
+
+/* Ring 1 */
+
+#foodies-loader #ring:nth-child(1) {
+    border-bottom: 8px solid rgb(240, 42, 230);
+
+    animation:
+        rotate1 2s linear infinite;
+}
+
+
+/* Ring 2 */
+
+#foodies-loader #ring:nth-child(2) {
+    border-bottom: 8px solid rgb(240, 19, 67);
+
+    animation:
+        rotate2 2s linear infinite;
+}
+
+
+/* Ring 3 */
+
+#foodies-loader #ring:nth-child(3) {
+    border-bottom: 8px solid rgb(3, 170, 170);
+
+    animation:
+        rotate3 2s linear infinite;
+}
+
+
+/* Ring 4 */
+
+#foodies-loader #ring:nth-child(4) {
+    border-bottom: 8px solid rgb(207, 135, 1);
+
+    animation:
+        rotate4 2s linear infinite;
+}
+
+
+/* Animations */
+
+@keyframes rotate1 {
+
+    from {
+        transform:
+            rotateX(50deg)
+            rotateZ(110deg);
+    }
+
+    to {
+        transform:
+            rotateX(50deg)
+            rotateZ(470deg);
+    }
+}
+
+
+@keyframes rotate2 {
+
+    from {
+        transform:
+            rotateX(20deg)
+            rotateY(50deg)
+            rotateZ(20deg);
+    }
+
+    to {
+        transform:
+            rotateX(20deg)
+            rotateY(50deg)
+            rotateZ(380deg);
+    }
+}
+
+
+@keyframes rotate3 {
+
+    from {
+        transform:
+            rotateX(40deg)
+            rotateY(130deg)
+            rotateZ(450deg);
+    }
+
+    to {
+        transform:
+            rotateX(40deg)
+            rotateY(130deg)
+            rotateZ(90deg);
+    }
+}
+
+
+@keyframes rotate4 {
+
+    from {
+        transform:
+            rotateX(70deg)
+            rotateZ(270deg);
+    }
+
+    to {
+        transform:
+            rotateX(70deg)
+            rotateZ(630deg);
+    }
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    #foodies-loader #container {
+        width: 150px;
+        height: 150px;
+    }
+
+    #foodies-loader #ring {
+        width: 150px;
+        height: 150px;
+    }
+
+    #foodies-loader #h3 {
+        font-size: 12px;
+        letter-spacing: 0.14em;
+    }
+}
+
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #foodies-loader #ring {
+        animation: none;
+    }
+}

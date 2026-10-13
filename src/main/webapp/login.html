@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login - Foodies | Express Delivery</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/login.css">
+
+</head>
+
+
+<body class="login-body">
+
+
+	<div class="login-container">
+
+
+		<!-- =========================================
+         LEFT SIDE - IMAGE SLIDER
+    ========================================== -->
+
+		<div class="login-image-section" id="imageSlider">
+
+
+			<!-- ALL YOUR IMAGES -->
+
+			<div class="slider-bg active"
+				style="background-image: url('images/0fa50d999107a706471179939d00c788.jpg')">
+			</div>
+
+			<div class="slider-bg"
+				style="background-image: url('images/19b1d1de8401c5288a7e61ced33cb99.jpg')">
+			</div>
+
+			<div class="slider-bg"
+				style="background-image: url('images/41129dbf061ee8e0fcddee01dab0a782.jpg')">
+			</div>
+
+			<div class="slider-bg"
+				style="background-image: url('images/45585e0eb4ba240874c3898286781acf.jpg')">
+			</div>
+
+			<div class="slider-bg"
+				style="background-image: url('images/482e6ab765b0ee7e2f744bbad20334d.jpg')">
+			</div>
+
+			<div class="slider-bg"
+				style="background-image: url('images/485a3163001b4c7ad2f9efa27f7584f8.jpg')">
+			</div>
+
+			<div class="slider-bg"
+				style="background-image: url('images/60f69df3c71bd948d08931773b6679ea.jpg')">
+			</div>
+
+			<div class="slider-bg"
+				style="background-image: url('images/6d67e226a3bcc908ed573bd876cdbdb.jpg')">
+			</div>
+
+			<div class="slider-bg"
+				style="background-image: url('images/78aa5c027f0fb7150c532e0cc703d248.jpg')">
+			</div>
+
+			<div class="slider-bg"
+				style="background-image: url('images/7b6eee3f30506eedd4d205974d83b4238.jpg')">
+			</div>
+
+			<div class="slider-bg"
+				style="background-image: url('images/7c2402022cc4020b6edc90d5a6a008c.jpg')">
+			</div>
+
+			<div class="slider-bg"
+				style="background-image: url('images/7e7c1ee72c563b1b15704cc5095e2526.jpg')">
+			</div>
+
+			<div class="slider-bg"
+				style="background-image: url('images/97d3470eba3744ccffaaa84a10f749a.jpg')">
+			</div>
+
+			<div class="slider-bg"
+				style="background-image: url('images/a120e6a1599c6c202b3362ba14d9bb01.jpg')">
+			</div>
+
+			<div class="slider-bg"
+				style="background-image: url('images/db393736ccaf23850574be72542482b.jpg')">
+			</div>
+
+			<div class="slider-bg"
+				style="background-image: url('images/f3bb524dc4a2b0b7fa76bf52d9d94211.jpg')">
+			</div>
+
+			<div class="slider-bg"
+				style="background-image: url('images/videoframe_4706.png')"></div>
+
+
+			<!-- IMAGE OVERLAY -->
+
+			<div class="image-overlay">
+
+				<h2>
+					Welcome to <span>Foodies</span>
+				</h2>
+
+				<p>The adventure you crave, the flavor you miss. Experience
+					air-drop food delivery like never before.</p>
+
+			</div>
+
+		</div>
+
+
+		<!-- =========================================
+         RIGHT SIDE - LOGIN FORM
+    ========================================== -->
+
+		<div class="login-form-section">
+
+
+			<div class="login-form-wrapper">
+
+
+				<div class="login-header">
+
+					<a href="index.html" class="logo">
+
+						<div class="logo-badge">🍔</div> Food<span>ies</span>
+
+					</a>
+
+
+					<h1>Sign In</h1>
+
+
+					<p>Welcome back! Please enter your details.</p>
+
+				</div>
+
+
+				<!-- =========================================
+                 LOGIN FORM
+            ========================================== -->
+
+				<form action="login" method="POST" class="login-form">
+
+
+					<!-- EMAIL -->
+
+					<div class="form-group">
+
+						<label for="email"> Email </label>
+
+						<div class="input-icon-wrapper">
+
+							<span class="input-icon"> ✉️ </span> <input type="email"
+								id="email" name="email" placeholder="Enter your email" required>
+
+						</div>
+
+					</div>
+
+
+					<!-- PASSWORD -->
+
+					<div class="form-group">
+
+						<label for="password"> Password </label>
+
+						<div class="input-icon-wrapper">
+
+							<span class="input-icon"> 🔒 </span> <input type="password"
+								id="password" name="password" placeholder="Enter your password"
+								required>
+
+						</div>
+
+					</div>
+
+
+					<!-- OPTIONS -->
+
+					<div class="form-options">
+
+						<label class="remember-me"> <input type="checkbox"
+							name="rememberMe"> <span>
+								Remember me </span>
+
+						</label> <a href="#" class="forgot-password"> Forgot Password? </a>
+
+					</div>
+
+
+					<!-- LOGIN -->
+
+					<button type="submit" class="btn-primary login-btn">Log In
+
+					</button>
+
+
+					<!-- GOOGLE -->
+
+					<button type="button" class="btn-google">
+
+						<img
+							src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+							alt="Google"> Sign in with Google
+
+					</button>
+
+
+				</form>
+
+
+				<!-- FOOTER -->
+
+				<div class="login-footer">
+					<p>
+						Don't have an account? <a href="signup.html"> Sign up </a>
+					</p>
+				</div>
+
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+	<!-- =========================================
+     IMAGE SLIDER JAVASCRIPT
+========================================== -->
+
+	<script>
+		const root = document.documentElement;
+
+		/*
+		 * Theme
+		 */
+
+		if (localStorage.getItem('theme') === 'light') {
+
+			root.setAttribute('data-theme', 'light');
+
+		}
+
+		/*
+		 * Image Slider
+		 */
+
+		document.addEventListener('DOMContentLoaded', function() {
+
+			const slides = document.querySelectorAll('.slider-bg');
+
+			let currentSlide = 0;
+
+			function nextSlide() {
+
+				slides[currentSlide].classList.remove('active');
+
+				currentSlide = (currentSlide + 1) % slides.length;
+
+				slides[currentSlide].classList.add('active');
+
+			}
+
+			/*
+			 * Change image every 4 seconds
+			 */
+
+			if (slides.length > 1) {
+
+				setInterval(nextSlide, 4000);
+
+			}
+
+		});
+	</script>
+
+
+</body>
+
+</html>

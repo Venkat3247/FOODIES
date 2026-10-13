@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up - Foodies</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #FBF1E1;
+        }
+
+        .signup-container {
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* ================= IMAGE SECTION ================= */
+
+        .signup-image-section {
+            width: 50%;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+
+            background-image:
+                url('images/0fa50d999107a706471179939d00c788.jpg');
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .signup-image-section::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    rgba(7, 53, 47, 0.55),
+                    rgba(7, 53, 47, 0.75)
+                );
+        }
+
+        .image-content {
+            position: absolute;
+            z-index: 2;
+
+            left: 60px;
+            right: 60px;
+            bottom: 90px;
+
+            color: white;
+        }
+
+        .image-content h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .image-content h2 span {
+            color: #D6A84F;
+        }
+
+        .image-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 500px;
+        }
+
+
+        /* ================= FORM SECTION ================= */
+
+        .signup-form-section {
+            width: 50%;
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 40px;
+        }
+
+        .signup-form-wrapper {
+            width: 100%;
+            max-width: 500px;
+        }
+
+
+        /* ================= LOGO ================= */
+
+        .logo {
+            text-decoration: none;
+            font-size: 32px;
+            font-weight: 800;
+            color: #174A3A;
+        }
+
+        .logo span {
+            color: #D6A84F;
+        }
+
+
+        /* ================= HEADER ================= */
+
+        .signup-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .signup-header h1 {
+            color: #174A3A;
+            margin: 18px 0 8px;
+            font-size: 32px;
+        }
+
+        .signup-header p {
+            color: #666;
+            margin: 0;
+        }
+
+
+        /* ================= FORM ================= */
+
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-group {
+            flex: 1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+
+            color: #174A3A;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+
+            padding: 13px 14px;
+
+            border: 1px solid #d6d0c5;
+            border-radius: 8px;
+
+            background: white;
+
+            font-size: 15px;
+            outline: none;
+
+            transition: 0.2s;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 75px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #D6A84F;
+
+            box-shadow:
+                0 0 0 2px rgba(214, 168, 79, 0.15);
+        }
+
+
+        /* ================= BUTTON ================= */
+
+        .signup-btn {
+            width: 100%;
+
+            padding: 14px;
+
+            margin-top: 5px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: #D6A84F;
+            color: #174A3A;
+
+            font-size: 16px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow: 0 3px 0 #9A7024;
+
+            transition: 0.2s;
+        }
+
+        .signup-btn:hover {
+            background: #c99b3e;
+        }
+
+        .signup-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 1px 0 #9A7024;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        .signup-footer {
+            text-align: center;
+            margin-top: 22px;
+        }
+
+        .signup-footer p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .signup-footer a {
+            color: #174A3A;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .signup-footer a:hover {
+            color: #D6A84F;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 900px) {
+
+            .signup-image-section {
+                display: none;
+            }
+
+            .signup-form-section {
+                width: 100%;
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .form-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .signup-form-wrapper {
+                max-width: 100%;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="signup-container">
+
+    <!-- ================= LEFT IMAGE ================= -->
+
+    <div class="signup-image-section">
+
+        <div class="image-content">
+
+            <h2>
+                Join <span>Foodies</span>
+            </h2>
+
+            <p>
+                Create your account and discover delicious food
+                from your favourite restaurants.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= RIGHT FORM ================= -->
+
+    <div class="signup-form-section">
+
+        <div class="signup-form-wrapper">
+
+
+            <div class="signup-header">
+
+                <a href="login.html" class="logo">
+                    Food<span>ies</span>
+                </a>
+
+                <h1>Create Account</h1>
+
+                <p>
+                    Sign up to start ordering delicious food.
+                </p>
+
+            </div>
+
+
+            <form action="signup" method="POST" class="signup-form">
+
+
+                <!-- NAME + USERNAME -->
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="username">
+                            Username
+                        </label>
+
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Enter username"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create a password"
+                        minlength="6"
+                        required>
+
+                </div>
+
+
+                <!-- PHONE -->
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="Enter phone number"
+                        pattern="[0-9]{10}"
+                        maxlength="10"
+                        required>
+
+                </div>
+
+
+                <!-- ADDRESS -->
+
+                <div class="form-group">
+
+                    <label for="address">
+                        Address
+                    </label>
+
+                    <textarea
+                        id="address"
+                        name="address"
+                        placeholder="Enter your delivery address"
+                        required></textarea>
+
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="signup-btn">
+
+                    Create Account
+
+                </button>
+
+            </form>
+
+
+            <!-- LOGIN LINK -->
+
+            <div class="signup-footer">
+
+                <p>
+
+                    Already have an account?
+
+                    <a href="login.html">
+                        Sign in
+                    </a>
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

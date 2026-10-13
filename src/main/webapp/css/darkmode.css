@@ -1,0 +1,136 @@
+
+/* ============================= */
+/* FOODIES DARK MODE              */
+/* ============================= */
+
+body.dark-mode {
+    background-color: #121212 !important;
+    color: #f5f5f5 !important;
+}
+
+/* Main sections */
+body.dark-mode section,
+body.dark-mode .section,
+body.dark-mode .container {
+    color: #f5f5f5;
+}
+
+/* Cards */
+body.dark-mode .card,
+body.dark-mode .restaurant-card,
+body.dark-mode .menu-card,
+body.dark-mode .food-card,
+body.dark-mode .cart-card {
+    background-color: #1e1e1e !important;
+    color: #f5f5f5 !important;
+    border-color: #333 !important;
+}
+
+/* Headings and text */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode label {
+    color: #f5f5f5;
+}
+
+/* Inputs */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background-color: #242424 !important;
+    color: #ffffff !important;
+    border-color: #444 !important;
+}
+
+/* Buttons */
+body.dark-mode button {
+    border-color: #444;
+}
+
+/* Links */
+body.dark-mode a {
+    color: #ffffff;
+}
+
+/* Tables */
+body.dark-mode table {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode th,
+body.dark-mode td {
+    border-color: #444 !important;
+}
+
+/* Cart */
+body.dark-mode .cart-item {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+}
+
+/* Images stay unchanged */
+body.dark-mode img {
+    filter: none;
+}
+
+/* Smooth transition */
+body,
+.card,
+.restaurant-card,
+.menu-card,
+.food-card,
+.cart-card,
+input,
+textarea,
+select,
+button {
+    transition: background-color 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease;
+}
+
+/* Foodies dark mode */
+body.dark-mode {
+    background-color: #121816 !important;
+    color: #f4f1e8 !important;
+}
+
+body.dark-mode .menu-container {
+    color: #f4f1e8;
+}
+
+body.dark-mode .menu-card,
+body.dark-mode .no-menu {
+    background-color: #202b27 !important;
+    color: #f4f1e8 !important;
+    border-color: #37463f !important;
+}
+
+body.dark-mode .food-name,
+body.dark-mode .food-description {
+    color: #f4f1e8 !important;
+}
+
+body.dark-mode .menu-hero {
+    background: #202b27 !important;
+    color: #f4f1e8 !important;
+    border-color: #37463f !important;
+}
+
+body.dark-mode .menu-hero h1,
+body.dark-mode .menu-hero-description {
+    color: #f4f1e8 !important;
+}
+
+body.dark-mode .navbar {
+    background-color: #07352f !important;
+}
+
+
