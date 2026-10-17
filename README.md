@@ -82,3 +82,44 @@ GitHub: [Venkat3247](https://github.com/Venkat3247)
 ---
 
 *Built as a Java web development project for learning and demonstrating full-stack application development.*
+
+
+
+
+## 📊 System Architecture
+
+```mermaid
+flowchart TD
+    A[User / Browser] --> B[JSP, HTML, CSS, JavaScript]
+    B --> C[Jakarta Servlets]
+    C --> D[DAO and Java Business Logic]
+    D --> E[JDBC]
+    E --> F[(MySQL Database)]
+    F --> E
+    E --> D
+    D --> C
+    C --> B
+```
+![Uploading image.png…]()
+
+![Uploading image.png…]()
+![Uploading image.png…]()
+![Uploading image.png…]()
+![Uploading image.png…]()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
