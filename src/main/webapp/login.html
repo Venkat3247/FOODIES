@@ -1,286 +1,367 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+    <title>Login - Foodies | Express Delivery</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
 
-<title>Login - Foodies | Express Delivery</title>
-
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/login.css">
-
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
-
 
 <body class="login-body">
 
+    <div class="login-container">
 
-	<div class="login-container">
+        <!-- LEFT SIDE - IMAGE SLIDER -->
+        <div class="login-image-section" id="imageSlider">
 
+            <div class="slider-bg active"
+                style="background-image: url('images/0fa50d999107a706471179939d00c788.jpg')"></div>
 
-		<!-- =========================================
-         LEFT SIDE - IMAGE SLIDER
-    ========================================== -->
+            <div class="slider-bg"
+                style="background-image: url('images/19b1d1de8401c5288a7e61ced33cb99.jpg')"></div>
 
-		<div class="login-image-section" id="imageSlider">
+            <div class="slider-bg"
+                style="background-image: url('images/41129dbf061ee8e0fcddee01dab0a782.jpg')"></div>
 
+            <div class="slider-bg"
+                style="background-image: url('images/45585e0eb4ba240874c3898286781acf.jpg')"></div>
 
-			<!-- ALL YOUR IMAGES -->
+            <div class="slider-bg"
+                style="background-image: url('images/482e6ab765b0ee7e2f744bbad20334d.jpg')"></div>
 
-			<div class="slider-bg active"
-				style="background-image: url('images/0fa50d999107a706471179939d00c788.jpg')">
-			</div>
+            <div class="slider-bg"
+                style="background-image: url('images/485a3163001b4c7ad2f9efa27f7584f8.jpg')"></div>
 
-			<div class="slider-bg"
-				style="background-image: url('images/19b1d1de8401c5288a7e61ced33cb99.jpg')">
-			</div>
+            <div class="slider-bg"
+                style="background-image: url('images/60f69df3c71bd948d08931773b6679ea.jpg')"></div>
 
-			<div class="slider-bg"
-				style="background-image: url('images/41129dbf061ee8e0fcddee01dab0a782.jpg')">
-			</div>
+            <div class="slider-bg"
+                style="background-image: url('images/6d67e226a3bcc908ed573bd876cdbdb.jpg')"></div>
 
-			<div class="slider-bg"
-				style="background-image: url('images/45585e0eb4ba240874c3898286781acf.jpg')">
-			</div>
+            <div class="slider-bg"
+                style="background-image: url('images/78aa5c027f0fb7150c532e0cc703d248.jpg')"></div>
 
-			<div class="slider-bg"
-				style="background-image: url('images/482e6ab765b0ee7e2f744bbad20334d.jpg')">
-			</div>
+            <div class="slider-bg"
+                style="background-image: url('images/7b6eee3f30506eedd4d205974d83b4238.jpg')"></div>
 
-			<div class="slider-bg"
-				style="background-image: url('images/485a3163001b4c7ad2f9efa27f7584f8.jpg')">
-			</div>
+            <div class="slider-bg"
+                style="background-image: url('images/7c2402022cc4020b6edc90d5a6a008c.jpg')"></div>
 
-			<div class="slider-bg"
-				style="background-image: url('images/60f69df3c71bd948d08931773b6679ea.jpg')">
-			</div>
+            <div class="slider-bg"
+                style="background-image: url('images/7e7c1ee72c563b1b15704cc5095e2526.jpg')"></div>
 
-			<div class="slider-bg"
-				style="background-image: url('images/6d67e226a3bcc908ed573bd876cdbdb.jpg')">
-			</div>
+            <div class="slider-bg"
+                style="background-image: url('images/97d3470eba3744ccffaaa84a10f749a.jpg')"></div>
 
-			<div class="slider-bg"
-				style="background-image: url('images/78aa5c027f0fb7150c532e0cc703d248.jpg')">
-			</div>
+            <div class="slider-bg"
+                style="background-image: url('images/a120e6a1599c6c202b3362ba14d9bb01.jpg')"></div>
 
-			<div class="slider-bg"
-				style="background-image: url('images/7b6eee3f30506eedd4d205974d83b4238.jpg')">
-			</div>
+            <div class="slider-bg"
+                style="background-image: url('images/db393736ccaf23850574be72542482b.jpg')"></div>
 
-			<div class="slider-bg"
-				style="background-image: url('images/7c2402022cc4020b6edc90d5a6a008c.jpg')">
-			</div>
+            <div class="slider-bg"
+                style="background-image: url('images/f3bb524dc4a2b0b7fa76bf52d9d94211.jpg')"></div>
 
-			<div class="slider-bg"
-				style="background-image: url('images/7e7c1ee72c563b1b15704cc5095e2526.jpg')">
-			</div>
+            <div class="slider-bg"
+                style="background-image: url('images/videoframe_4706.png')"></div>
 
-			<div class="slider-bg"
-				style="background-image: url('images/97d3470eba3744ccffaaa84a10f749a.jpg')">
-			</div>
+            <!-- IMAGE OVERLAY -->
+            <div class="image-overlay">
 
-			<div class="slider-bg"
-				style="background-image: url('images/a120e6a1599c6c202b3362ba14d9bb01.jpg')">
-			</div>
+                <h2>
+                    Welcome to <span>Foodies</span>
+                </h2>
 
-			<div class="slider-bg"
-				style="background-image: url('images/db393736ccaf23850574be72542482b.jpg')">
-			</div>
+                <p>
+                    The adventure you crave, the flavor you miss.
+                    Experience air-drop food delivery like never before.
+                </p>
 
-			<div class="slider-bg"
-				style="background-image: url('images/f3bb524dc4a2b0b7fa76bf52d9d94211.jpg')">
-			</div>
+            </div>
 
-			<div class="slider-bg"
-				style="background-image: url('images/videoframe_4706.png')"></div>
+        </div>
 
+        <!-- RIGHT SIDE - LOGIN FORM -->
+        <div class="login-form-section">
 
-			<!-- IMAGE OVERLAY -->
+            <div class="login-form-wrapper">
 
-			<div class="image-overlay">
+                <!-- HEADER -->
+                <div class="login-header">
 
-				<h2>
-					Welcome to <span>Foodies</span>
-				</h2>
+                    <a href="index.html" class="logo">
+                        <div class="logo-badge">🍔</div>
+                        Food<span>ies</span>
+                    </a>
 
-				<p>The adventure you crave, the flavor you miss. Experience
-					air-drop food delivery like never before.</p>
+                    <h1>Sign In</h1>
 
-			</div>
+                    <p>Welcome back! Please enter your details.</p>
 
-		</div>
+                </div>
 
+                <!-- LOGIN FORM -->
+                <form action="login" method="POST" class="login-form">
 
-		<!-- =========================================
-         RIGHT SIDE - LOGIN FORM
-    ========================================== -->
+                    <!-- LOGIN ERROR MESSAGE -->
+                    <div id="loginError"
+                         style="display:none; color:#ff4d4f;
+                                font-size:14px; margin-bottom:15px;
+                                text-align:center;">
 
-		<div class="login-form-section">
+                        Invalid email or password. Please try again.
 
+                    </div>
 
-			<div class="login-form-wrapper">
+                    <!-- EMAIL -->
+                    <div class="form-group">
 
+                        <label for="email">Email</label>
 
-				<div class="login-header">
+                        <div class="input-icon-wrapper">
 
-					<a href="index.html" class="logo">
+                            <span class="input-icon">✉️</span>
 
-						<div class="logo-badge">🍔</div> Food<span>ies</span>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                required>
 
-					</a>
+                        </div>
 
+                    </div>
 
-					<h1>Sign In</h1>
+                    <!-- PASSWORD -->
+                    <div class="form-group">
 
+                        <label for="password">Password</label>
 
-					<p>Welcome back! Please enter your details.</p>
+                        <div class="input-icon-wrapper">
 
-				</div>
+                            <span class="input-icon">🔒</span>
 
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter your password"
+                                required>
 
-				<!-- =========================================
-                 LOGIN FORM
-            ========================================== -->
+                        </div>
 
-				<form action="login" method="POST" class="login-form">
+                    </div>
 
+                    <!-- OPTIONS -->
+                    <div class="form-options">
 
-					<!-- EMAIL -->
+                        <label class="remember-me">
 
-					<div class="form-group">
+                            <input type="checkbox" name="rememberMe">
 
-						<label for="email"> Email </label>
+                            <span>Remember me</span>
 
-						<div class="input-icon-wrapper">
+                        </label>
 
-							<span class="input-icon"> ✉️ </span> <input type="email"
-								id="email" name="email" placeholder="Enter your email" required>
+                        <a href="forgotPassword.jsp" class="forgot-password">
+                            Forgot Password?
+                        </a>
 
-						</div>
+                    </div>
 
-					</div>
+                    <!-- LOGIN BUTTON -->
+                    <button type="submit" class="btn-primary login-btn">
+                        Log In
+                    </button>
 
+                    <!-- GOOGLE LOGIN CONFIGURATION -->
+                    <div id="g_id_onload"
+                        data-client_id="936389627472-9qnv2b0i1e84orbr3c61uf083ht3cp4s.apps.googleusercontent.com"
+                        data-callback="handleGoogleSignIn"
+                        data-ux_mode="popup">
+                    </div>
 
-					<!-- PASSWORD -->
+                    <!-- GOOGLE BUTTON -->
+                    <div class="google-button-wrapper">
 
-					<div class="form-group">
+                        <div id="googleButton"></div>
 
-						<label for="password"> Password </label>
+                    </div>
 
-						<div class="input-icon-wrapper">
+                </form>
 
-							<span class="input-icon"> 🔒 </span> <input type="password"
-								id="password" name="password" placeholder="Enter your password"
-								required>
+                <!-- FOOTER -->
+                <div class="login-footer">
 
-						</div>
+                    <p>
+                        Don't have an account?
+                        <a href="signup.html">Sign up</a>
+                    </p>
 
-					</div>
+                </div>
 
+            </div>
 
-					<!-- OPTIONS -->
+        </div>
 
-					<div class="form-options">
+    </div>
 
-						<label class="remember-me"> <input type="checkbox"
-							name="rememberMe"> <span>
-								Remember me </span>
+    <!-- THEME AND IMAGE SLIDER -->
+    <script>
 
-						</label> <a href="#" class="forgot-password"> Forgot Password? </a>
+        const root = document.documentElement;
 
-					</div>
+        if (localStorage.getItem('theme') === 'light') {
+            root.setAttribute('data-theme', 'light');
+        }
 
+        document.addEventListener('DOMContentLoaded', function () {
 
-					<!-- LOGIN -->
+            const slides = document.querySelectorAll('.slider-bg');
 
-					<button type="submit" class="btn-primary login-btn">Log In
+            let currentSlide = 0;
 
-					</button>
+            function nextSlide() {
 
+                slides[currentSlide].classList.remove('active');
 
-					<!-- GOOGLE -->
+                currentSlide = (currentSlide + 1) % slides.length;
 
-					<button type="button" class="btn-google">
+                slides[currentSlide].classList.add('active');
 
-						<img
-							src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-							alt="Google"> Sign in with Google
+            }
 
-					</button>
+            if (slides.length > 1) {
+                setInterval(nextSlide, 4000);
+            }
 
+            // SHOW LOGIN ERROR MESSAGE
+            const params = new URLSearchParams(window.location.search);
 
-				</form>
+            if (params.get("error") === "invalid") {
 
+                const errorBox = document.getElementById("loginError");
 
-				<!-- FOOTER -->
+                if (errorBox) {
+                    errorBox.style.display = "block";
+                }
 
-				<div class="login-footer">
-					<p>
-						Don't have an account? <a href="signup.html"> Sign up </a>
-					</p>
-				</div>
+            }
 
+        });
 
-			</div>
+    </script>
 
-		</div>
+    <!-- GOOGLE SIGN-IN BUTTON -->
+    <script>
 
-	</div>
+        window.addEventListener("load", function () {
 
+            const loginButton = document.querySelector(".login-btn");
 
-	<!-- =========================================
-     IMAGE SLIDER JAVASCRIPT
-========================================== -->
+            const googleButton = document.getElementById("googleButton");
 
-	<script>
-		const root = document.documentElement;
+            function renderGoogleButton() {
 
-		/*
-		 * Theme
-		 */
+                if (!window.google || !google.accounts || !loginButton) {
 
-		if (localStorage.getItem('theme') === 'light') {
+                    setTimeout(renderGoogleButton, 200);
 
-			root.setAttribute('data-theme', 'light');
+                    return;
+                }
 
-		}
+                google.accounts.id.initialize({
 
-		/*
-		 * Image Slider
-		 */
+                    client_id: "936389627472-9qnv2b0i1e84orbr3c61uf083ht3cp4s.apps.googleusercontent.com",
 
-		document.addEventListener('DOMContentLoaded', function() {
+                    callback: handleGoogleSignIn,
 
-			const slides = document.querySelectorAll('.slider-bg');
+                    ux_mode: "popup"
 
-			let currentSlide = 0;
+                });
 
-			function nextSlide() {
+                google.accounts.id.renderButton(
 
-				slides[currentSlide].classList.remove('active');
+                    googleButton,
 
-				currentSlide = (currentSlide + 1) % slides.length;
+                    {
+                        type: "standard",
+                        theme: "outline",
+                        size: "large",
+                        text: "continue_with",
+                        shape: "rectangular",
+                        width: Math.min(loginButton.offsetWidth, 400)
+                    }
 
-				slides[currentSlide].classList.add('active');
+                );
 
-			}
+            }
 
-			/*
-			 * Change image every 4 seconds
-			 */
+            renderGoogleButton();
 
-			if (slides.length > 1) {
+        });
 
-				setInterval(nextSlide, 4000);
+        function handleGoogleSignIn(response) {
 
-			}
+            const formData = new URLSearchParams();
 
-		});
-	</script>
+            formData.append("credential", response.credential);
 
+            fetch("googleLogin", {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+
+                body: formData.toString()
+
+            })
+
+            .then(res => {
+
+                if (!res.ok) {
+                    throw new Error("Server error: " + res.status);
+                }
+
+                return res.json();
+
+            })
+
+            .then(data => {
+
+                if (data.success) {
+
+                    window.location.href = "Checkout.jsp";
+
+                } else {
+
+                    alert(data.message || "Google login failed. Please register first.");
+
+                }
+
+            })
+
+            .catch(error => {
+
+                console.error(error);
+
+                alert("Google login failed. Please try again.");
+
+            });
+
+        }
+
+    </script>
 
 </body>
 

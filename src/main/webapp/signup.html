@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,6 @@
     <link rel="stylesheet" href="css/login.css">
 
     <style>
-
         * {
             box-sizing: border-box;
         }
@@ -27,17 +27,14 @@
             display: flex;
         }
 
-        /* ================= IMAGE SECTION ================= */
-
+        /* IMAGE SECTION */
         .signup-image-section {
             width: 50%;
             min-height: 100vh;
             position: relative;
             overflow: hidden;
-
             background-image:
                 url('images/0fa50d999107a706471179939d00c788.jpg');
-
             background-size: cover;
             background-position: center;
         }
@@ -46,22 +43,18 @@
             content: "";
             position: absolute;
             inset: 0;
-
-            background:
-                linear-gradient(
-                    rgba(7, 53, 47, 0.55),
-                    rgba(7, 53, 47, 0.75)
-                );
+            background: linear-gradient(
+                rgba(7, 53, 47, 0.55),
+                rgba(7, 53, 47, 0.75)
+            );
         }
 
         .image-content {
             position: absolute;
             z-index: 2;
-
             left: 60px;
             right: 60px;
             bottom: 90px;
-
             color: white;
         }
 
@@ -80,17 +73,13 @@
             max-width: 500px;
         }
 
-
-        /* ================= FORM SECTION ================= */
-
+        /* FORM SECTION */
         .signup-form-section {
             width: 50%;
             min-height: 100vh;
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             padding: 40px;
         }
 
@@ -99,9 +88,7 @@
             max-width: 500px;
         }
 
-
-        /* ================= LOGO ================= */
-
+        /* LOGO */
         .logo {
             text-decoration: none;
             font-size: 32px;
@@ -113,9 +100,7 @@
             color: #D6A84F;
         }
 
-
-        /* ================= HEADER ================= */
-
+        /* HEADER */
         .signup-header {
             text-align: center;
             margin-bottom: 25px;
@@ -132,9 +117,7 @@
             margin: 0;
         }
 
-
-        /* ================= FORM ================= */
-
+        /* FORM */
         .signup-form {
             display: flex;
             flex-direction: column;
@@ -153,7 +136,6 @@
         .form-group label {
             display: block;
             margin-bottom: 7px;
-
             color: #174A3A;
             font-size: 14px;
             font-weight: 700;
@@ -162,17 +144,12 @@
         .form-group input,
         .form-group textarea {
             width: 100%;
-
             padding: 13px 14px;
-
             border: 1px solid #d6d0c5;
             border-radius: 8px;
-
             background: white;
-
             font-size: 15px;
             outline: none;
-
             transition: 0.2s;
         }
 
@@ -184,34 +161,44 @@
         .form-group input:focus,
         .form-group textarea:focus {
             border-color: #D6A84F;
-
-            box-shadow:
-                0 0 0 2px rgba(214, 168, 79, 0.15);
+            box-shadow: 0 0 0 2px rgba(214, 168, 79, 0.15);
         }
 
+        /* ERROR AND SUCCESS MESSAGES */
+        .signup-message {
+            display: none;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 11px;
+            border-radius: 7px;
+            text-align: center;
+        }
 
-        /* ================= BUTTON ================= */
+        .signup-error {
+            color: #d93025;
+            background: #fff0ef;
+            border: 1px solid #ffc9c5;
+        }
 
+        .signup-success {
+            color: #16803c;
+            background: #eaf8ee;
+            border: 1px solid #b9e6c5;
+        }
+
+        /* BUTTON */
         .signup-btn {
             width: 100%;
-
             padding: 14px;
-
             margin-top: 5px;
-
             border: none;
             border-radius: 8px;
-
             background: #D6A84F;
             color: #174A3A;
-
             font-size: 16px;
             font-weight: 700;
-
             cursor: pointer;
-
             box-shadow: 0 3px 0 #9A7024;
-
             transition: 0.2s;
         }
 
@@ -224,9 +211,7 @@
             box-shadow: 0 1px 0 #9A7024;
         }
 
-
-        /* ================= FOOTER ================= */
-
+        /* FOOTER */
         .signup-footer {
             text-align: center;
             margin-top: 22px;
@@ -247,11 +232,8 @@
             color: #D6A84F;
         }
 
-
-        /* ================= MOBILE ================= */
-
+        /* MOBILE */
         @media (max-width: 900px) {
-
             .signup-image-section {
                 display: none;
             }
@@ -263,7 +245,6 @@
         }
 
         @media (max-width: 550px) {
-
             .form-row {
                 flex-direction: column;
                 gap: 15px;
@@ -273,18 +254,14 @@
                 max-width: 100%;
             }
         }
-
     </style>
-
 </head>
-
 
 <body>
 
 <div class="signup-container">
 
-    <!-- ================= LEFT IMAGE ================= -->
-
+    <!-- LEFT IMAGE -->
     <div class="signup-image-section">
 
         <div class="image-content">
@@ -302,14 +279,12 @@
 
     </div>
 
-
-    <!-- ================= RIGHT FORM ================= -->
-
+    <!-- RIGHT FORM -->
     <div class="signup-form-section">
 
         <div class="signup-form-wrapper">
 
-
+            <!-- HEADER -->
             <div class="signup-header">
 
                 <a href="login.html" class="logo">
@@ -324,19 +299,26 @@
 
             </div>
 
+            <!-- ERROR MESSAGE -->
+            <div id="signupError"
+                 class="signup-message signup-error">
+            </div>
 
+            <!-- SUCCESS MESSAGE -->
+            <div id="signupSuccess"
+                 class="signup-message signup-success">
+                Account created successfully! Please sign in.
+            </div>
+
+            <!-- SIGNUP FORM -->
             <form action="signup" method="POST" class="signup-form">
 
-
                 <!-- NAME + USERNAME -->
-
                 <div class="form-row">
 
                     <div class="form-group">
 
-                        <label for="name">
-                            Full Name
-                        </label>
+                        <label for="name">Full Name</label>
 
                         <input
                             type="text"
@@ -347,12 +329,9 @@
 
                     </div>
 
-
                     <div class="form-group">
 
-                        <label for="username">
-                            Username
-                        </label>
+                        <label for="username">Username</label>
 
                         <input
                             type="text"
@@ -365,14 +344,10 @@
 
                 </div>
 
-
                 <!-- EMAIL -->
-
                 <div class="form-group">
 
-                    <label for="email">
-                        Email
-                    </label>
+                    <label for="email">Email</label>
 
                     <input
                         type="email"
@@ -383,33 +358,25 @@
 
                 </div>
 
-
                 <!-- PASSWORD -->
-
                 <div class="form-group">
 
-                    <label for="password">
-                        Password
-                    </label>
+                    <label for="password">Password</label>
 
                     <input
                         type="password"
                         id="password"
                         name="password"
                         placeholder="Create a password"
-                        minlength="6"
+                        minlength="8"
                         required>
 
                 </div>
 
-
                 <!-- PHONE -->
-
                 <div class="form-group">
 
-                    <label for="phone">
-                        Phone Number
-                    </label>
+                    <label for="phone">Phone Number</label>
 
                     <input
                         type="tel"
@@ -422,14 +389,10 @@
 
                 </div>
 
-
                 <!-- ADDRESS -->
-
                 <div class="form-group">
 
-                    <label for="address">
-                        Address
-                    </label>
+                    <label for="address">Address</label>
 
                     <textarea
                         id="address"
@@ -439,36 +402,25 @@
 
                 </div>
 
-
                 <!-- SUBMIT -->
-
-                <button
-                    type="submit"
-                    class="signup-btn">
-
+                <button type="submit" class="signup-btn">
                     Create Account
-
                 </button>
 
             </form>
 
-
             <!-- LOGIN LINK -->
-
             <div class="signup-footer">
 
                 <p>
-
                     Already have an account?
 
                     <a href="login.html">
                         Sign in
                     </a>
-
                 </p>
 
             </div>
-
 
         </div>
 
@@ -476,6 +428,42 @@
 
 </div>
 
-</body>
+<!-- SIGNUP VALIDATION MESSAGES -->
+<script>
 
+document.addEventListener("DOMContentLoaded", function () {
+
+    const params = new URLSearchParams(window.location.search);
+
+    const errorBox = document.getElementById("signupError");
+    const successBox = document.getElementById("signupSuccess");
+
+    const error = params.get("error");
+    const success = params.get("success");
+
+    const errorMessages = {
+        empty: "Please fill in all required fields.",
+        password: "Password must contain at least 8 characters.",
+        phone: "Please enter a valid 10-digit phone number.",
+        email: "This email is already registered. Please use another email."
+    };
+
+    if (error && errorMessages[error]) {
+
+        errorBox.textContent = errorMessages[error];
+        errorBox.style.display = "block";
+
+    }
+
+    if (success === "1") {
+
+        successBox.style.display = "block";
+
+    }
+
+});
+
+</script>
+
+</body>
 </html>

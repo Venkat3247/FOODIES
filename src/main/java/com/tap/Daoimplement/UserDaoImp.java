@@ -198,107 +198,96 @@ public class UserDaoImp implements UserDao {
     // LOGIN
     // =========================================================
 
-    @Override
-    public User getUserByEmailAndPassword(String email, String password) {
+  
+
+
+@Override
+public User getUserByEmailAndPassword(String email, String password) {
+
+    User user = null;
+
+    if (email == null || password == null) {
+        return null;
+    }
+
+    String sql =
+        "SELECT userid, name, username, email, password, " +
+        "phone, address, role " +
+        "FROM `user` WHERE TRIM(email) = ?";
+
+    try (
+        Connection con = DBConnection.getConnection();
+        PreparedStatement stmt = con.prepareStatement(sql)
+    ) {
+
+        stmt.setString(1, email.trim());
+
+        try (ResultSet res = stmt.executeQuery()) {
+
+            if (res.next()) {
+
+                String dbPassword = res.getString("password");
+
+                // Temporary support for existing plain-text passwords
+                if (dbPassword != null &&
+                    dbPassword.equals(password)) {
+
+                    user = new User(
+                        res.getInt("userid"),
+                        res.getString("name"),
+                        res.getString("username"),
+                        res.getString("email"),
+                        res.getString("password"),
+                        res.getLong("phone"),
+                        res.getString("address"),
+                        res.getString("role"),
+                        null,
+                        null
+                    );
+                }
+            }
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return user;
+}
+
+    
+    public User getUserByEmail(String email) {
 
         User user = null;
 
-        email = email == null ? "" : email.trim();
-        password = password == null ? "" : password.trim();
-
-        String sql =
-            "SELECT userid, name, username, email, password, phone, address, role "
-          + "FROM `user` "
-          + "WHERE TRIM(email) = ?";
+        String sql = "SELECT * FROM `user` WHERE TRIM(email)=?";
 
         try (
             Connection con = DBConnection.getConnection();
             PreparedStatement stmt = con.prepareStatement(sql)
         ) {
 
-            System.out.println("================================");
-            System.out.println("### FOODIES LOGIN DAO ###");
+            stmt.setString(1, email.trim());
 
-            // Check the database Java is actually connected to
-            try (
-                PreparedStatement dbStmt =
-                    con.prepareStatement("SELECT DATABASE()");
-                ResultSet dbResult =
-                    dbStmt.executeQuery()
-            ) {
+            ResultSet rs = stmt.executeQuery();
 
-                if (dbResult.next()) {
-                    System.out.println(
-                        "JAVA DATABASE = " + dbResult.getString(1)
-                    );
-                }
-            }
+            if (rs.next()) {
 
-            System.out.println(
-                "SEARCH EMAIL = [" + email + "]"
-            );
-
-            stmt.setString(1, email);
-
-            ResultSet res = stmt.executeQuery();
-
-            if (res.next()) {
-
-                String dbEmail = res.getString("email");
-                String dbPassword = res.getString("password");
-
-                System.out.println("EMAIL FOUND");
-                System.out.println(
-                    "DB EMAIL = [" + dbEmail + "]"
-                );
-                System.out.println(
-                    "DB PASSWORD = [" + dbPassword + "]"
-                );
-
-                if (dbPassword != null
-                        && dbPassword.trim().equals(password)) {
-
-                    System.out.println("PASSWORD MATCH");
-
-                    user = new User(
-                    	    res.getInt("userid"),
-                    	    res.getString("name"),
-                    	    res.getString("username"),
-                    	    res.getString("email"),
-                    	    res.getString("password"),
-                    	    res.getLong("phone"),
-                    	    res.getString("address"),
-                    	    res.getString("role"),
-                    	    null,
-                    	    null
-                    	);
-
-                    System.out.println(
-                        "USER CREATED SUCCESSFULLY"
-                    );
-
-                } else {
-
-                    System.out.println(
-                        "PASSWORD DOES NOT MATCH"
-                    );
-                }
-
-            } else {
-
-                System.out.println(
-                    "EMAIL NOT FOUND"
+                user = new User(
+                    rs.getInt("userid"),
+                    rs.getString("name"),
+                    rs.getString("username"),
+                    rs.getString("email"),
+                    rs.getString("password"),
+                    rs.getLong("phone"),
+                    rs.getString("address"),
+                    rs.getString("role"),
+                    rs.getTimestamp("loginDatetime"),
+                    rs.getTimestamp("createdate")
                 );
             }
-
-            System.out.println("================================");
 
         } catch (SQLException e) {
-
-            System.out.println(
-                "### LOGIN DAO SQL ERROR ###"
-            );
-
             e.printStackTrace();
         }
 

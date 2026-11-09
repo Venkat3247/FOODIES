@@ -3,6 +3,8 @@ package com.tap.controller;
 
 import java.io.IOException;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import com.tap.Daoimplement.UserDaoImp;
 import com.tap.model.User;
 
@@ -34,28 +36,60 @@ public class LoginController extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
 
-        UserDaoImp dao = new UserDaoImp();
-        User user = dao.getUserByEmailAndPassword(email, password);
+        if (email == null || password == null
+                || email.trim().isEmpty() || password.isEmpty()) {
 
-        if (user != null) {
+            resp.sendRedirect(req.getContextPath()
+                    + "/login.html?error=invalid");
+            return;
+        }
+
+        UserDaoImp dao = new UserDaoImp();
+        User user = dao.getUserByEmail(email.trim());
+
+        boolean isValid = false;
+
+        if (user != null && user.getPassword() != null) {
+            try {
+                isValid = BCrypt.checkpw(password, user.getPassword());
+            } catch (IllegalArgumentException e) {
+                isValid = false;
+            }
+        }
+
+        if (isValid) {
 
             HttpSession session = req.getSession();
-
             session.setAttribute("loggedInUser", user);
 
-            // Restore checkout after login
+            // ADMIN LOGIN
+            if ("admin".equalsIgnoreCase(user.getRole())) {
+
+            	resp.sendRedirect(req.getContextPath()
+            	        + "/adminDashboard.jsp");
+                return;
+            }
+
+            // CUSTOMER LOGIN
             String redirectUrl =
                     (String) session.getAttribute("checkoutRedirect");
 
             if (redirectUrl != null) {
+
                 session.removeAttribute("checkoutRedirect");
+
                 resp.sendRedirect(req.getContextPath() + redirectUrl);
+
             } else {
-                resp.sendRedirect(req.getContextPath() + "/Checkout.jsp");
+
+                resp.sendRedirect(req.getContextPath()
+                        + "/Checkout.jsp");
             }
 
         } else {
-            resp.sendRedirect(req.getContextPath() + "/login.html");
+
+            resp.sendRedirect(req.getContextPath()
+                    + "/login.html?error=invalid");
         }
     }
 }

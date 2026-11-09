@@ -33,7 +33,12 @@ public class PlaceOrderController extends HttpServlet {
         System.out.println("PLACE ORDER CONTROLLER");
         System.out.println("================================");
 
-        HttpSession session = req.getSession();
+        HttpSession session = req.getSession(false);
+
+        if (session == null) {
+            resp.sendRedirect(req.getContextPath() + "/login.html");
+            return;
+        }
 
         // =========================
         // CHECK LOGIN
@@ -78,22 +83,43 @@ public class PlaceOrderController extends HttpServlet {
             return;
         }
 
+
         // =========================
-        // GET TOTAL AMOUNT
+        // CALCULATE TOTAL ON SERVER
         // =========================
 
-        String totalAmountParameter = req.getParameter("totalAmount");
+        final int DELIVERY_FEE = 40;
 
-        int totalAmount;
+        double cartSubtotal = 0;
 
-        try {
-            totalAmount = (int) Double.parseDouble(totalAmountParameter);
-        } catch (Exception e) {
-            totalAmount = (int) cart.getTotal() + 40;
+        for (Map.Entry<Integer, CartItem> entry
+                : cart.getItems().entrySet()) {
+
+            CartItem cartItem = entry.getValue();
+            Menu menu = cartItem.getMenu();
+
+            if (menu == null || cartItem.getQuantity() <= 0
+                    || menu.getPrice() < 0) {
+
+                resp.sendRedirect(req.getContextPath() + "/cart");
+                return;
+            }
+
+            cartSubtotal += menu.getPrice() * cartItem.getQuantity();
         }
 
-        System.out.println("USER ID = " + user.getUserid());
-        System.out.println("TOTAL AMOUNT = " + totalAmount);
+        if (cartSubtotal <= 0
+                || cartSubtotal + DELIVERY_FEE > Integer.MAX_VALUE) {
+
+            resp.sendRedirect(req.getContextPath() + "/cart");
+            return;
+        }
+
+        int totalAmount = (int) cartSubtotal + DELIVERY_FEE;
+
+        System.out.println("CART SUBTOTAL = " + cartSubtotal);
+        System.out.println("DELIVERY FEE = " + DELIVERY_FEE);
+        System.out.println("SERVER CALCULATED TOTAL = " + totalAmount);
 
         // =========================
         // GET RESTAURANT ID

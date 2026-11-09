@@ -1,6 +1,9 @@
+
 package com.tap.controller;
 
 import java.io.IOException;
+
+import org.mindrot.jbcrypt.BCrypt;
 
 import com.tap.Daoimplement.UserDaoImp;
 import com.tap.model.User;
@@ -18,12 +21,8 @@ public class SignupController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req,
-                           HttpServletResponse resp)
+                          HttpServletResponse resp)
             throws ServletException, IOException {
-
-        System.out.println("================================");
-        System.out.println("SIGNUP CONTROLLER");
-        System.out.println("================================");
 
         String name = req.getParameter("name");
         String username = req.getParameter("username");
@@ -32,46 +31,73 @@ public class SignupController extends HttpServlet {
         String phoneParameter = req.getParameter("phone");
         String address = req.getParameter("address");
 
-        System.out.println("NAME = " + name);
-        System.out.println("USERNAME = " + username);
-        System.out.println("EMAIL = " + email);
-
+        // Check required fields
         if (name == null || name.trim().isEmpty()
                 || username == null || username.trim().isEmpty()
                 || email == null || email.trim().isEmpty()
-                || password == null || password.trim().isEmpty()
+                || password == null || password.isEmpty()
                 || phoneParameter == null || phoneParameter.trim().isEmpty()
                 || address == null || address.trim().isEmpty()) {
 
-            resp.sendRedirect(req.getContextPath() + "/signup.html");
+            resp.sendRedirect(req.getContextPath()
+                    + "/signup.html?error=empty");
             return;
         }
 
-        long phone;
+        name = name.trim();
+        username = username.trim();
+        email = email.trim();
+        address = address.trim();
+        phoneParameter = phoneParameter.trim();
 
-        try {
-            phone = Long.parseLong(phoneParameter.trim());
-        } catch (NumberFormatException e) {
-            resp.sendRedirect(req.getContextPath() + "/signup.html");
+        // Password validation
+        if (password.length() < 8) {
+            resp.sendRedirect(req.getContextPath()
+                    + "/signup.html?error=password");
             return;
         }
 
-        User user = new User(
-            name.trim(),
-            username.trim(),
-            email.trim(),
-            password.trim(),
-            phone,
-            address.trim(),
-            "customer"
-        );
+        // Phone validation: exactly 10 digits
+        if (!phoneParameter.matches("[0-9]{10}")) {
+            resp.sendRedirect(req.getContextPath()
+                    + "/signup.html?error=phone");
+            return;
+        }
+
+        long phone = Long.parseLong(phoneParameter);
 
         UserDaoImp userDao = new UserDaoImp();
 
+        // Check duplicate email
+        User existingUser = userDao.getUserByEmail(email);
+
+        if (existingUser != null) {
+            resp.sendRedirect(req.getContextPath()
+                    + "/signup.html?error=email");
+            return;
+        }
+
+        // Hash password using BCrypt
+        String hashedPassword = BCrypt.hashpw(
+                password,
+                BCrypt.gensalt(12)
+        );
+
+        // Create user
+        User user = new User(
+                name,
+                username,
+                email,
+                hashedPassword,
+                phone,
+                address,
+                "customer"
+        );
+
         userDao.adduser(user);
 
-        System.out.println("USER SIGNUP COMPLETED");
-
-        resp.sendRedirect(req.getContextPath() + "/login.html");
+        // Signup successful
+        resp.sendRedirect(req.getContextPath()
+                + "/signup.html?success=1");
     }
 }
